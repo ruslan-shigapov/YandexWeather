@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		E4FF10DA2A84DCE300A33FF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF10D92A84DCE300A33FF9 /* AppDelegate.swift */; };
 		E4FF10DC2A84DCE300A33FF9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF10DB2A84DCE300A33FF9 /* SceneDelegate.swift */; };
-		E4FF10DE2A84DCE300A33FF9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF10DD2A84DCE300A33FF9 /* ViewController.swift */; };
-		E4FF10E12A84DCE300A33FF9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4FF10DF2A84DCE300A33FF9 /* Main.storyboard */; };
 		E4FF10E32A84DCE500A33FF9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4FF10E22A84DCE500A33FF9 /* Assets.xcassets */; };
 		E4FF10E62A84DCE500A33FF9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4FF10E42A84DCE500A33FF9 /* LaunchScreen.storyboard */; };
+		E4FF10EF2A84DF5D00A33FF9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF10EE2A84DF5D00A33FF9 /* MainViewController.swift */; };
+		E4FF10F42A84E1A000A33FF9 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF10F32A84E1A000A33FF9 /* MainViewModel.swift */; };
+		E4FF10F82A84E49700A33FF9 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF10F72A84E49700A33FF9 /* City.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E4FF10D62A84DCE300A33FF9 /* YandexWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YandexWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4FF10D92A84DCE300A33FF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4FF10DB2A84DCE300A33FF9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E4FF10DD2A84DCE300A33FF9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E4FF10E02A84DCE300A33FF9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E4FF10E22A84DCE500A33FF9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4FF10E52A84DCE500A33FF9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E4FF10E72A84DCE500A33FF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4FF10EE2A84DF5D00A33FF9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		E4FF10F32A84E1A000A33FF9 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		E4FF10F72A84E49700A33FF9 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +58,64 @@
 		E4FF10D82A84DCE300A33FF9 /* YandexWeather */ = {
 			isa = PBXGroup;
 			children = (
-				E4FF10D92A84DCE300A33FF9 /* AppDelegate.swift */,
-				E4FF10DB2A84DCE300A33FF9 /* SceneDelegate.swift */,
-				E4FF10DD2A84DCE300A33FF9 /* ViewController.swift */,
-				E4FF10DF2A84DCE300A33FF9 /* Main.storyboard */,
-				E4FF10E22A84DCE500A33FF9 /* Assets.xcassets */,
-				E4FF10E42A84DCE500A33FF9 /* LaunchScreen.storyboard */,
-				E4FF10E72A84DCE500A33FF9 /* Info.plist */,
+				E4FF10ED2A84DEB400A33FF9 /* App */,
+				E4FF10F02A84E0A500A33FF9 /* Main */,
+				E4FF10F52A84E46F00A33FF9 /* Models */,
+				E4FF10F62A84E47700A33FF9 /* Services */,
+				E4FF10F22A84E0C200A33FF9 /* Storyboards */,
+				E4FF10F12A84E0B700A33FF9 /* Resources */,
 			);
 			path = YandexWeather;
+			sourceTree = "<group>";
+		};
+		E4FF10ED2A84DEB400A33FF9 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				E4FF10D92A84DCE300A33FF9 /* AppDelegate.swift */,
+				E4FF10DB2A84DCE300A33FF9 /* SceneDelegate.swift */,
+				E4FF10E72A84DCE500A33FF9 /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		E4FF10F02A84E0A500A33FF9 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				E4FF10EE2A84DF5D00A33FF9 /* MainViewController.swift */,
+				E4FF10F32A84E1A000A33FF9 /* MainViewModel.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		E4FF10F12A84E0B700A33FF9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E4FF10E22A84DCE500A33FF9 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E4FF10F22A84E0C200A33FF9 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				E4FF10E42A84DCE500A33FF9 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		E4FF10F52A84E46F00A33FF9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E4FF10F72A84E49700A33FF9 /* City.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E4FF10F62A84E47700A33FF9 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +178,6 @@
 			files = (
 				E4FF10E62A84DCE500A33FF9 /* LaunchScreen.storyboard in Resources */,
 				E4FF10E32A84DCE500A33FF9 /* Assets.xcassets in Resources */,
-				E4FF10E12A84DCE300A33FF9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +188,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4FF10DE2A84DCE300A33FF9 /* ViewController.swift in Sources */,
 				E4FF10DA2A84DCE300A33FF9 /* AppDelegate.swift in Sources */,
+				E4FF10F82A84E49700A33FF9 /* City.swift in Sources */,
 				E4FF10DC2A84DCE300A33FF9 /* SceneDelegate.swift in Sources */,
+				E4FF10EF2A84DF5D00A33FF9 /* MainViewController.swift in Sources */,
+				E4FF10F42A84E1A000A33FF9 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E4FF10DF2A84DCE300A33FF9 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E4FF10E02A84DCE300A33FF9 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E4FF10E42A84DCE500A33FF9 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -216,7 +260,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -270,7 +314,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -289,12 +333,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = X7QDNJU74Z;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = YandexWeather/Info.plist;
+				INFOPLIST_FILE = YandexWeather/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,9 +346,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Ruslan-Shigapov.YandexWeather";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -317,12 +364,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = X7QDNJU74Z;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = YandexWeather/Info.plist;
+				INFOPLIST_FILE = YandexWeather/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -330,9 +377,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Ruslan-Shigapov.YandexWeather";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
