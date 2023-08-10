@@ -7,14 +7,9 @@
 
 import Foundation
 
-enum Section: String, CaseIterable {
-    case searchBar
-    case citiesList
-}
-
 protocol MainViewModelProtocol {
     func numberOfSections() -> Int
-    func numberOfRows(in section: Int) -> Int
+    func numberOfRows(in section: Section) -> Int
 }
 
 final class MainViewModel: MainViewModelProtocol {
@@ -25,15 +20,12 @@ final class MainViewModel: MainViewModelProtocol {
         Section.allCases.count
     }
     
-    func numberOfRows(in section: Int) -> Int {
+    func numberOfRows(in section: Section) -> Int {
         let count: Int?
-        
-        let section = Section.allCases[section]
         switch section {
         case .searchBar: count = 1
         case .citiesList: count = citiesList.count
         }
-        
         return count ?? 0
     }
 }
