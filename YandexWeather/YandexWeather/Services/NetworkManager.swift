@@ -5,6 +5,7 @@
 //  Created by Руслан Шигапов on 10.08.2023.
 //
 
+import Foundation
 import Alamofire
 
 final class NetworkManager {
@@ -13,7 +14,7 @@ final class NetworkManager {
     
     private let key = "94a2fd21-e55c-4326-8220-932ad2de2459"
     
-    private let link = "https://api.weather.yandex.ru/v2/informers?"
+    private let link = "https://api.weather.yandex.ru/v2/informers"
     
     private var headers: HTTPHeaders {
         ["X-Yandex-API-Key": "\(key)"]
@@ -21,12 +22,18 @@ final class NetworkManager {
     
     private init() {}
     
-    func fetchWeather(from url: String,
-                       completion: @escaping (Result<City, AFError>) -> Void) {
-        // link + ...
+    func fetchWeather(for latitude: Double,
+                      and longitude: Double,
+                      completion: @escaping (Result<CityWeather, AFError>) -> Void) {
+        guard var urlComponents = URLComponents(string: link) else { return }
+        urlComponents.queryItems = [
+            URLQueryItem(name: "lat", value: "\(latitude)"),
+            URLQueryItem(name: "lon", value: "\(longitude)"),
+        ]
+        guard let url = urlComponents.url else { return }
         AF.request(url, headers: headers)
             .validate()
-            .responseDecodable(of: City.self) { response in
+            .responseDecodable(of: CityWeather.self) { response in
                 switch response.result {
                 case .success(let value):
                     completion(.success(value))

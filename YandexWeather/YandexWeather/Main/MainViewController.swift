@@ -9,13 +9,20 @@ import UIKit
 
 enum Section: String, CaseIterable {
     case searchBar
-    case citiesList
+    case weatherList
+    // case infoButton
 }
 
 final class MainViewController: UITableViewController {
     
     // MARK: - Private Properties
-    private var viewModel: MainViewModelProtocol!
+    private var viewModel: MainViewModelProtocol! {
+        didSet {
+//            viewModel.getWeatherList {
+//                tableView.reloadData()
+//            }
+        }
+    }
     
     private lazy var footerButton: UIButton = {
         let button = UIButton(type: .custom)
@@ -65,7 +72,7 @@ final class MainViewController: UITableViewController {
         )
         tableView.register(
             CityCell.self,
-            forCellReuseIdentifier: Section.citiesList.rawValue
+            forCellReuseIdentifier: Section.weatherList.rawValue
         )
     }
     
@@ -102,7 +109,7 @@ final class MainViewController: UITableViewController {
         case .searchBar:
             let searchSectionCell = cell as? SearchCell
             cell = searchSectionCell
-        case .citiesList:
+        case .weatherList:
             let citiesSectionCell = cell as? CityCell
             cell = citiesSectionCell
         }
@@ -116,7 +123,7 @@ final class MainViewController: UITableViewController {
         let view: UIView?
         switch section {
         case .searchBar: view = nil
-        case .citiesList: view = footerView
+        case .weatherList: view = footerView
         }
         return view
     }
