@@ -16,6 +16,8 @@
 		E4FF10F82A84E49700A33FF9 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF10F72A84E49700A33FF9 /* City.swift */; };
 		E4FF10FB2A84E87200A33FF9 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF10FA2A84E87200A33FF9 /* SearchCell.swift */; };
 		E4FF10FD2A84E89200A33FF9 /* CityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF10FC2A84E89200A33FF9 /* CityCell.swift */; };
+		E4FF10FF2A850F5E00A33FF9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF10FE2A850F5E00A33FF9 /* NetworkManager.swift */; };
+		E4FF11022A85105100A33FF9 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E4FF11012A85105100A33FF9 /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,7 @@
 		E4FF10F72A84E49700A33FF9 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		E4FF10FA2A84E87200A33FF9 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		E4FF10FC2A84E89200A33FF9 /* CityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCell.swift; sourceTree = "<group>"; };
+		E4FF10FE2A850F5E00A33FF9 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4FF11022A85105100A33FF9 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +123,7 @@
 		E4FF10F62A84E47700A33FF9 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				E4FF10FE2A850F5E00A33FF9 /* NetworkManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -148,6 +153,9 @@
 			dependencies = (
 			);
 			name = YandexWeather;
+			packageProductDependencies = (
+				E4FF11012A85105100A33FF9 /* Alamofire */,
+			);
 			productName = YandexWeather;
 			productReference = E4FF10D62A84DCE300A33FF9 /* YandexWeather.app */;
 			productType = "com.apple.product-type.application";
@@ -176,6 +184,9 @@
 				Base,
 			);
 			mainGroup = E4FF10CD2A84DCE200A33FF9;
+			packageReferences = (
+				E4FF11002A85105100A33FF9 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = E4FF10D72A84DCE300A33FF9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -206,6 +217,7 @@
 				E4FF10FB2A84E87200A33FF9 /* SearchCell.swift in Sources */,
 				E4FF10F82A84E49700A33FF9 /* City.swift in Sources */,
 				E4FF10DC2A84DCE300A33FF9 /* SceneDelegate.swift in Sources */,
+				E4FF10FF2A850F5E00A33FF9 /* NetworkManager.swift in Sources */,
 				E4FF10EF2A84DF5D00A33FF9 /* MainViewController.swift in Sources */,
 				E4FF10FD2A84E89200A33FF9 /* CityCell.swift in Sources */,
 				E4FF10F42A84E1A000A33FF9 /* MainViewModel.swift in Sources */,
@@ -424,6 +436,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E4FF11002A85105100A33FF9 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E4FF11012A85105100A33FF9 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E4FF11002A85105100A33FF9 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E4FF10CE2A84DCE200A33FF9 /* Project object */;
 }
