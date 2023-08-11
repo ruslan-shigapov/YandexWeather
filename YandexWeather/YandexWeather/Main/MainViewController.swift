@@ -10,7 +10,7 @@ import UIKit
 enum Section: String, CaseIterable {
     case searchBar
     case weatherList
-    // case infoButton
+    case infoButton
 }
 
 final class MainViewController: UITableViewController {
@@ -23,49 +23,20 @@ final class MainViewController: UITableViewController {
 //            }
         }
     }
-    
-    private lazy var footerButton: UIButton = {
-        let button = UIButton(type: .custom)
-        button.setImage(UIImage(named: "Logo"), for: .normal)
-        return button
-    }()
-    
-    private lazy var footerLabel: UILabel = {
-        let label = UILabel()
-        label.text = "По данным сервиса"
-        label.font = .systemFont(ofSize: 9, weight: .medium)
-        return label
-    }()
-    
-    private lazy var footerStackView: UIStackView = {
-        let stackView = UIStackView(
-            arrangedSubviews: [footerButton, footerLabel]
-        )
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-
-        stackView.axis = .vertical
-        stackView.spacing = 3
-        stackView.alignment = .center
-        return stackView
-    }()
-    
-    private lazy var footerView: UIView = {
-        let view = UIView()
-        view.addSubview(footerStackView)
-        return view
-    }()
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = MainViewModel()
         setupUI()
-        setConstraints()
     }
     
     // MARK: - Private Methods
     private func setupUI() {
         title = "Yandex Weather"
+        view.backgroundColor = .secondarySystemBackground
+        tableView.allowsSelection = false
+        tableView.separatorStyle = .none
         tableView.register(
             SearchCell.self,
             forCellReuseIdentifier: Section.searchBar.rawValue
@@ -74,21 +45,10 @@ final class MainViewController: UITableViewController {
             CityCell.self,
             forCellReuseIdentifier: Section.weatherList.rawValue
         )
-    }
-    
-    private func setConstraints() {
-        NSLayoutConstraint.activate([
-            footerButton.widthAnchor.constraint(equalToConstant: 112.5),
-            footerButton.heightAnchor.constraint(equalToConstant: 18.75),
-            footerStackView.trailingAnchor.constraint(
-                equalTo: footerView.trailingAnchor,
-                constant: -16
-            ),
-            footerStackView.topAnchor.constraint(
-                equalTo: footerView.topAnchor,
-                constant: 5
-            )
-        ])
+        tableView.register(
+            InfoCell.self,
+            forCellReuseIdentifier: Section.infoButton.rawValue
+        )
     }
 
     // MARK: - Table view data source
@@ -112,19 +72,24 @@ final class MainViewController: UITableViewController {
         case .weatherList:
             let citiesSectionCell = cell as? CityCell
             cell = citiesSectionCell
+        case .infoButton:
+            let infoSectionCell = cell as? InfoCell
+            cell = infoSectionCell
         }
         return cell ?? UITableViewCell()
     }
     
     // MARK: - Table view delegate
     override func tableView(_ tableView: UITableView,
-                            viewForFooterInSection section: Int) -> UIView? {
-        let section = Section.allCases[section]
-        let view: UIView?
+                            heightForRowAt indexPath: IndexPath) -> CGFloat {
+        super.tableView(tableView, heightForRowAt: indexPath)
+        let section = Section.allCases[indexPath.section]
+        var height: CGFloat = 44
         switch section {
-        case .searchBar: view = nil
-        case .weatherList: view = footerView
+        case .searchBar: break
+        case .weatherList: height = 72
+        case .infoButton: break
         }
-        return view
+        return height
     }
 }

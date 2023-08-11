@@ -24,12 +24,14 @@ final class MainViewModel: MainViewModelProtocol {
     }
     
     func numberOfRows(in section: Section) -> Int {
-        let count: Int?
+        var count = 1
         switch section {
-        case .searchBar: count = 1
-        case .weatherList: count = weatherList.count
+        case .searchBar: break
+            // temporary decision
+        case .weatherList: count = citiesList.count
+        case .infoButton: break
         }
-        return count ?? 0
+        return count
     }
     
     func getWeatherList(completion: () -> Void) {
