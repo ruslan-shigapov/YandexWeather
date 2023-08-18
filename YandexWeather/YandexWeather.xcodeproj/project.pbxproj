@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E41A59CB2A855432001D33B3 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41A59CA2A855432001D33B3 /* City.swift */; };
 		E43DAE4F2A8630EF0039E7B0 /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43DAE4E2A8630EF0039E7B0 /* InfoCell.swift */; };
+		E4DE9C322A8A43890061B9DF /* CityCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DE9C312A8A43890061B9DF /* CityCellViewModel.swift */; };
 		E4FF10DA2A84DCE300A33FF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF10D92A84DCE300A33FF9 /* AppDelegate.swift */; };
 		E4FF10DC2A84DCE300A33FF9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF10DB2A84DCE300A33FF9 /* SceneDelegate.swift */; };
 		E4FF10E32A84DCE500A33FF9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4FF10E22A84DCE500A33FF9 /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		E41A59CA2A855432001D33B3 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		E43DAE4E2A8630EF0039E7B0 /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
+		E4DE9C312A8A43890061B9DF /* CityCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCellViewModel.swift; sourceTree = "<group>"; };
 		E4FF10D62A84DCE300A33FF9 /* YandexWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YandexWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4FF10D92A84DCE300A33FF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4FF10DB2A84DCE300A33FF9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			children = (
 				E4FF10FA2A84E87200A33FF9 /* SearchCell.swift */,
 				E4FF10FC2A84E89200A33FF9 /* CityCell.swift */,
+				E4DE9C312A8A43890061B9DF /* CityCellViewModel.swift */,
 				E43DAE4E2A8630EF0039E7B0 /* InfoCell.swift */,
 			);
 			path = Cells;
@@ -221,6 +224,7 @@
 			files = (
 				E4FF10DA2A84DCE300A33FF9 /* AppDelegate.swift in Sources */,
 				E4FF10FB2A84E87200A33FF9 /* SearchCell.swift in Sources */,
+				E4DE9C322A8A43890061B9DF /* CityCellViewModel.swift in Sources */,
 				E41A59CB2A855432001D33B3 /* City.swift in Sources */,
 				E4FF10F82A84E49700A33FF9 /* CityWeather.swift in Sources */,
 				E4FF10DC2A84DCE300A33FF9 /* SceneDelegate.swift in Sources */,

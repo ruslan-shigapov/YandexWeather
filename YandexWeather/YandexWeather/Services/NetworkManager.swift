@@ -14,7 +14,7 @@ final class NetworkManager {
     
     private let key = "94a2fd21-e55c-4326-8220-932ad2de2459"
     
-    private let link = "https://api.weather.yandex.ru/v2/informers"
+    private let link = "https://api.weather.yandex.ru/v2/informers/"
     
     private var headers: HTTPHeaders {
         ["X-Yandex-API-Key": "\(key)"]
@@ -28,7 +28,7 @@ final class NetworkManager {
         guard var urlComponents = URLComponents(string: link) else { return }
         urlComponents.queryItems = [
             URLQueryItem(name: "lat", value: "\(latitude)"),
-            URLQueryItem(name: "lon", value: "\(longitude)"),
+            URLQueryItem(name: "lon", value: "\(longitude)")
         ]
         guard let url = urlComponents.url else { return }
         AF.request(url, headers: headers)

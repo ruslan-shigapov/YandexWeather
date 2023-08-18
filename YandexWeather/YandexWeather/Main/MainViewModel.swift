@@ -10,7 +10,9 @@ import Foundation
 protocol MainViewModelProtocol {
     func numberOfSections() -> Int
     func numberOfRows(in section: Section) -> Int
-    func getWeatherList(completion: () -> Void)
+    func fetchAllWeather(completion: @escaping () -> Void)
+    func getCityName(at indexPath: IndexPath) -> String
+    func getCityCellViewModel(at indexPath: IndexPath) -> CityCellViewModelProtocol
 }
 
 final class MainViewModel: MainViewModelProtocol {
@@ -24,32 +26,40 @@ final class MainViewModel: MainViewModelProtocol {
     }
     
     func numberOfRows(in section: Section) -> Int {
-        var count = 1
+        var count: Int
         switch section {
-        case .searchBar: break
-            // temporary decision
-        case .weatherList: count = citiesList.count
-        case .infoButton: break
+        case .searchBar: count = 1
+        case .weatherList:
+            count = weatherList.count
+        case .infoButton: count = 1
         }
         return count
     }
     
-    func getWeatherList(completion: () -> Void) {
-        citiesList.forEach { fetchWeather(in: $0) }
-        completion()
-    }
-    
-    private func fetchWeather(in city: City) {
-        NetworkManager.shared.fetchWeather(
-            for: city.latitude,
-            and: city.longitude
-        ) { [weak self] result in
-            switch result {
-            case .success(let cityWeather):
-                self?.weatherList.append(cityWeather)
-            case .failure(let error):
-                print(error.localizedDescription)
+    func fetchAllWeather(completion: @escaping () -> Void) {
+        for city in citiesList {
+            NetworkManager.shared.fetchWeather(
+                for: city.latitude,
+                and: city.longitude
+            ) { [weak self] result in
+                switch result {
+                case .success(let cityWeather):
+                    DispatchQueue.global().async {
+                        self?.weatherList.append(cityWeather)
+                    }
+                    completion()
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
             }
         }
+    }
+    
+    func getCityName(at indexPath: IndexPath) -> String {
+        citiesList[indexPath.row].name
+    }
+    
+    func getCityCellViewModel(at indexPath: IndexPath) -> CityCellViewModelProtocol {
+        CityCellViewModel(cityWeather: weatherList[indexPath.row])
     }
 }

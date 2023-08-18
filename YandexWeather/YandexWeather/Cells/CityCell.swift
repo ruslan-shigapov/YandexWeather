@@ -10,16 +10,8 @@ import UIKit
 class CityCell: UITableViewCell {
     
     // MARK: - Private Properties
-    private lazy var cityLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Казань"
-        label.font = .systemFont(ofSize: 16, weight: .bold)
-        return label
-    }()
-    
     private lazy var conditionLabel: UILabel = {
         let label = UILabel()
-        label.text = "Местами дожди"
         label.font = .systemFont(ofSize: 12, weight: .light)
         return label
     }()
@@ -34,7 +26,7 @@ class CityCell: UITableViewCell {
     }()
     
     private lazy var weatherImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "Rain"))
+        let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -42,33 +34,47 @@ class CityCell: UITableViewCell {
     private lazy var weatherLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "+19 \u{00B0}C"
         label.font = .systemFont(ofSize: 20, weight: .medium)
         return label
     }()
     
-    private lazy var afternoonWeatherLabel: UILabel = {
+    private lazy var sunriseTimeLabel: UILabel = {
         let label = UILabel()
-        label.text = "днем +25 \u{00B0}C"
         label.font = .systemFont(ofSize: 10, weight: .light)
         return label
     }()
     
-    private lazy var eveningWeatherLabel: UILabel = {
+    private lazy var sunsetTimeLabel: UILabel = {
         let label = UILabel()
-        label.text = "вечером +13 \u{00B0}C"
         label.font = .systemFont(ofSize: 10, weight: .light)
         return label
     }()
     
     private lazy var weatherStackView: UIStackView = {
         let stackView = UIStackView(
-            arrangedSubviews: [afternoonWeatherLabel, eveningWeatherLabel]
+            arrangedSubviews: [sunriseTimeLabel, sunsetTimeLabel]
         )
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         return stackView
     }()
+    
+    // MARK: - Public Properties
+    lazy var cityLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 16, weight: .bold)
+        return label
+    }()
+    
+    var viewModel: CityCellViewModelProtocol! {
+        didSet {
+            conditionLabel.text = viewModel.condition
+            weatherImageView.image = UIImage(named: viewModel.icon)
+            weatherLabel.text = viewModel.temperature
+            sunriseTimeLabel.text = viewModel.sunrise
+            sunsetTimeLabel.text = viewModel.sunset
+        }
+    }
 
     // MARK: - Initialization
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

@@ -18,9 +18,9 @@ final class MainViewController: UITableViewController {
     // MARK: - Private Properties
     private var viewModel: MainViewModelProtocol! {
         didSet {
-//            viewModel.getWeatherList {
-//                tableView.reloadData()
-//            }
+            viewModel.fetchAllWeather { [weak self] in
+                self?.tableView.reloadData()
+            }
         }
     }
 
@@ -71,6 +71,8 @@ final class MainViewController: UITableViewController {
             cell = searchSectionCell
         case .weatherList:
             let citiesSectionCell = cell as? CityCell
+            citiesSectionCell?.cityLabel.text = viewModel.getCityName(at: indexPath)
+            citiesSectionCell?.viewModel = viewModel.getCityCellViewModel(at: indexPath)
             cell = citiesSectionCell
         case .infoButton:
             let infoSectionCell = cell as? InfoCell
@@ -84,11 +86,11 @@ final class MainViewController: UITableViewController {
                             heightForRowAt indexPath: IndexPath) -> CGFloat {
         super.tableView(tableView, heightForRowAt: indexPath)
         let section = Section.allCases[indexPath.section]
-        var height: CGFloat = 44
+        var height: CGFloat
         switch section {
-        case .searchBar: break
+        case .searchBar: height = 44
         case .weatherList: height = 72
-        case .infoButton: break
+        case .infoButton: height = 44
         }
         return height
     }
