@@ -18,7 +18,7 @@ class InfoCell: UITableViewCell {
     
     private lazy var footerLabel: UILabel = {
         let label = UILabel()
-        label.text = "По данным сервиса"
+        label.text = "by the service"
         label.font = .systemFont(ofSize: 9, weight: .medium)
         return label
     }()
@@ -60,8 +60,8 @@ class InfoCell: UITableViewCell {
 
     private func setConstraints() {
         NSLayoutConstraint.activate([
-            footerButton.widthAnchor.constraint(equalToConstant: 112.5),
-            footerButton.heightAnchor.constraint(equalToConstant: 18.75),
+            footerButton.widthAnchor.constraint(equalToConstant: 120),
+            footerButton.heightAnchor.constraint(equalToConstant: 20),
             footerStackView.trailingAnchor.constraint(
                 equalTo: contentView.trailingAnchor,
                 constant: -16
