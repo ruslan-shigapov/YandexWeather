@@ -21,6 +21,10 @@ final class MainViewController: UITableViewController {
             viewModel.fetchAllWeather { [weak self] in
                 self?.tableView.reloadData()
             }
+            viewModel.footerButtonWasPressed = { [weak self] in
+                let infoVC = InfoViewController()
+                self?.present(infoVC, animated: true)
+            }
         }
     }
 
@@ -75,6 +79,7 @@ final class MainViewController: UITableViewController {
             cell = citiesSectionCell
         case .infoButton:
             let infoSectionCell = cell as? InfoCell
+            infoSectionCell?.delegate = viewModel as InfoCellDelegate
             cell = infoSectionCell
         }
         return cell ?? UITableViewCell()

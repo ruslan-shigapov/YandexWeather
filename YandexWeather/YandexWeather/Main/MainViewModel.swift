@@ -7,7 +7,11 @@
 
 import Foundation
 
-protocol MainViewModelProtocol {
+protocol InfoCellDelegate {
+    var footerButtonWasPressed: (() -> Void)? { get set }
+}
+
+protocol MainViewModelProtocol: InfoCellDelegate {
     func numberOfSections() -> Int
     func numberOfRows(in section: Section) -> Int
     func fetchAllWeather(completion: @escaping () -> Void)
@@ -21,6 +25,8 @@ final class MainViewModel: MainViewModelProtocol {
     private let citiesList = City.getCities()
     
     private var weatherList: [CityWeather] = []
+    
+    var footerButtonWasPressed: (() -> Void)?
     
     func numberOfSections() -> Int {
         Section.allCases.count

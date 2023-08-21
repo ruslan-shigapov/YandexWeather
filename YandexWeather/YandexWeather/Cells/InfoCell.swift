@@ -13,6 +13,11 @@ class InfoCell: UITableViewCell {
     private lazy var footerButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setImage(UIImage(named: "Logo"), for: .normal)
+        button.addTarget(
+            self,
+            action: #selector(footerButtonPressed),
+            for: .touchUpInside
+        )
         return button
     }()
     
@@ -40,6 +45,9 @@ class InfoCell: UITableViewCell {
         view.addSubview(footerStackView)
         return view
     }()
+    
+    // MARK: - Public Properties 
+    var delegate: InfoCellDelegate!
 
     // MARK: - Initialization
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -71,5 +79,9 @@ class InfoCell: UITableViewCell {
                 constant: 8
             )
         ])
+    }
+    
+    @objc private func footerButtonPressed() {
+        delegate.footerButtonWasPressed?()
     }
 }
