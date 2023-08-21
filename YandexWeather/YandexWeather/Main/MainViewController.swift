@@ -35,7 +35,6 @@ final class MainViewController: UITableViewController {
     private func setupUI() {
         title = "Yandex Weather"
         view.backgroundColor = .secondarySystemBackground
-        tableView.allowsSelection = false
         tableView.separatorStyle = .none
         tableView.register(
             SearchCell.self,
@@ -84,7 +83,6 @@ final class MainViewController: UITableViewController {
     // MARK: - Table view delegate
     override func tableView(_ tableView: UITableView,
                             heightForRowAt indexPath: IndexPath) -> CGFloat {
-        super.tableView(tableView, heightForRowAt: indexPath)
         let section = Section.allCases[indexPath.section]
         var height: CGFloat
         switch section {
@@ -93,5 +91,13 @@ final class MainViewController: UITableViewController {
         case .infoButton: height = 44
         }
         return height
+    }
+    
+    override func tableView(_ tableView: UITableView,
+                            didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let detailsVC = DetailsViewController()
+        detailsVC.viewModel = viewModel.getDetailsViewModel(at: indexPath)
+        present(detailsVC, animated: true)
     }
 }

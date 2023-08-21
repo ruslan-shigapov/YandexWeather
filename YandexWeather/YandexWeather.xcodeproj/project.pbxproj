@@ -12,6 +12,7 @@
 		E45E069B2A8F622A00BE26A1 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45E069A2A8F622A00BE26A1 /* DetailsViewController.swift */; };
 		E45E069E2A8F675D00BE26A1 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45E069D2A8F675D00BE26A1 /* InfoViewController.swift */; };
 		E4DE9C322A8A43890061B9DF /* CityCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DE9C312A8A43890061B9DF /* CityCellViewModel.swift */; };
+		E4E712952A8F96B300DA9D05 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E712942A8F96B300DA9D05 /* DetailsViewModel.swift */; };
 		E4FF10DA2A84DCE300A33FF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF10D92A84DCE300A33FF9 /* AppDelegate.swift */; };
 		E4FF10DC2A84DCE300A33FF9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF10DB2A84DCE300A33FF9 /* SceneDelegate.swift */; };
 		E4FF10E32A84DCE500A33FF9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4FF10E22A84DCE500A33FF9 /* Assets.xcassets */; };
@@ -31,6 +32,7 @@
 		E45E069A2A8F622A00BE26A1 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		E45E069D2A8F675D00BE26A1 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InfoViewController.swift; path = ../../../../../Documents/InfoViewController.swift; sourceTree = "<group>"; };
 		E4DE9C312A8A43890061B9DF /* CityCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCellViewModel.swift; sourceTree = "<group>"; };
+		E4E712942A8F96B300DA9D05 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 		E4FF10D62A84DCE300A33FF9 /* YandexWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YandexWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4FF10D92A84DCE300A33FF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4FF10DB2A84DCE300A33FF9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				E45E069A2A8F622A00BE26A1 /* DetailsViewController.swift */,
+				E4E712942A8F96B300DA9D05 /* DetailsViewModel.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				E4FF10FD2A84E89200A33FF9 /* CityCell.swift in Sources */,
 				E45E069E2A8F675D00BE26A1 /* InfoViewController.swift in Sources */,
 				E4FF10F42A84E1A000A33FF9 /* MainViewModel.swift in Sources */,
+				E4E712952A8F96B300DA9D05 /* DetailsViewModel.swift in Sources */,
 				E43DAE4F2A8630EF0039E7B0 /* InfoCell.swift in Sources */,
 				E45E069B2A8F622A00BE26A1 /* DetailsViewController.swift in Sources */,
 			);

@@ -13,6 +13,7 @@ protocol MainViewModelProtocol {
     func fetchAllWeather(completion: @escaping () -> Void)
     func getCityName(at indexPath: IndexPath) -> String
     func getCityCellViewModel(at indexPath: IndexPath) -> CityCellViewModelProtocol
+    func getDetailsViewModel(at indexPath: IndexPath) -> DetailsViewModelProtocol
 }
 
 final class MainViewModel: MainViewModelProtocol {
@@ -61,5 +62,9 @@ final class MainViewModel: MainViewModelProtocol {
     
     func getCityCellViewModel(at indexPath: IndexPath) -> CityCellViewModelProtocol {
         CityCellViewModel(cityWeather: weatherList[indexPath.row])
+    }
+    
+    func getDetailsViewModel(at indexPath: IndexPath) -> DetailsViewModelProtocol {
+        DetailsViewModel(city: citiesList[indexPath.row])
     }
 }

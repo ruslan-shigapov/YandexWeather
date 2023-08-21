@@ -12,6 +12,7 @@ struct CityWeather: Codable {
 
 struct Fact: Codable {
     let temp: Int
+    let feels_like: Int
     let icon: String
     let condition: String
 }
@@ -19,4 +20,11 @@ struct Fact: Codable {
 struct Forecast: Codable {
     let sunrise: String
     let sunset: String
+    let parts: [Part]
+}
+
+struct Part: Codable {
+    let part_name: String
+    let temp_avg: Int
+    let condition: String
 }
