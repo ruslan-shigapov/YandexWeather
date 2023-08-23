@@ -23,8 +23,8 @@ final class DetailsViewController: UIViewController {
     }()
     
     private lazy var weatherImageView: UIImageView = {
-        let view = UIImageView()
-        return view
+        let imageView = UIImageView()
+        return imageView
     }()
     
     private lazy var weatherLabel: UILabel = {
@@ -34,11 +34,11 @@ final class DetailsViewController: UIViewController {
     }()
     
     private lazy var weatherStackView: UIStackView = {
-        let view = UIStackView(
+        let stackView = UIStackView(
             arrangedSubviews: [weatherImageView, weatherLabel]
         )
-        view.spacing = 8
-        return view
+        stackView.spacing = 8
+        return stackView
     }()
     
     private lazy var feelsLikeLabel: UILabel = {
@@ -48,7 +48,7 @@ final class DetailsViewController: UIViewController {
     }()
     
     private lazy var mainStackView: UIStackView = {
-        let view = UIStackView(
+        let stackView = UIStackView(
             arrangedSubviews: [
                 cityLabel,
                 conditionLabel,
@@ -56,10 +56,10 @@ final class DetailsViewController: UIViewController {
                 feelsLikeLabel
             ]
         )
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.axis = .vertical
-        view.alignment = .center
-        return view
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.alignment = .center
+        return stackView
     }()
     
     private lazy var firstPartNameLabel: UILabel = {
@@ -81,17 +81,17 @@ final class DetailsViewController: UIViewController {
     }()
     
     private lazy var firstPartStackView: UIStackView = {
-        let view = UIStackView(
+        let stackView = UIStackView(
             arrangedSubviews: [
                 firstPartNameLabel,
                 firstPartConditionLabel,
                 firstPartAverageTempLabel
             ]
         )
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.axis = .vertical
-        view.alignment = .center
-        return view
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.alignment = .center
+        return stackView
     }()
     
     private lazy var firstView: UIView = {
@@ -121,17 +121,17 @@ final class DetailsViewController: UIViewController {
     }()
     
     private lazy var secondPartStackView: UIStackView = {
-        let view = UIStackView(
+        let stackView = UIStackView(
             arrangedSubviews: [
                 secondPartNameLabel,
                 secondPartConditionLabel,
                 secondPartAverageTempLabel
             ]
         )
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.axis = .vertical
-        view.alignment = .center
-        return view
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.alignment = .center
+        return stackView
     }()
     
     private lazy var secondView: UIView = {

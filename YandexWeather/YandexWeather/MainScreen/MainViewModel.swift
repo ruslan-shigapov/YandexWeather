@@ -33,14 +33,7 @@ final class MainViewModel: MainViewModelProtocol {
     }
     
     func numberOfRows(in section: Section) -> Int {
-        var count: Int
-        switch section {
-        case .searchBar: count = 1
-        case .weatherList:
-            count = weatherList.count
-        case .infoButton: count = 1
-        }
-        return count
+        section == .weatherList ? weatherList.count : 1
     }
     
     func fetchAllWeather(completion: @escaping () -> Void) {
@@ -51,7 +44,7 @@ final class MainViewModel: MainViewModelProtocol {
             ) { [weak self] result in
                 switch result {
                 case .success(let cityWeather):
-                    DispatchQueue.global().async {
+                    DispatchQueue.global().sync {
                         self?.weatherList.append(cityWeather)
                     }
                     completion()

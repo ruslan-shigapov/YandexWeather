@@ -62,7 +62,6 @@ class InfoCell: UITableViewCell {
     
     // MARK: - Private Methods
     private func setupUI() {
-        contentView.backgroundColor = .secondarySystemBackground
         contentView.addSubview(footerStackView)
     }
 

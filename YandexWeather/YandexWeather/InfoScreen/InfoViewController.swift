@@ -11,9 +11,17 @@ class InfoViewController: UIViewController {
     
     // MARK: - Private Properties
     private lazy var webView: WKWebView = {
-        let view = WKWebView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
+        let webView = WKWebView()
+        webView.translatesAutoresizingMaskIntoConstraints = false
+        webView.addSubview(activityIndicator)
+        return webView
+    }()
+    
+    private lazy var activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.startAnimating()
+        return activityIndicator
     }()
     
     private var viewModel: InfoViewModelProtocol!
@@ -29,6 +37,7 @@ class InfoViewController: UIViewController {
     // MARK: - Private Methods
     private func setupWebView() {
         view.addSubview(webView)
+        webView.navigationDelegate = self
         if let request = viewModel.request {
             webView.load(request)
         }
@@ -39,7 +48,17 @@ class InfoViewController: UIViewController {
             webView.topAnchor.constraint(equalTo: view.topAnchor),
             webView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             webView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            webView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            webView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            activityIndicator.centerXAnchor.constraint(equalTo: webView.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: webView.centerYAnchor)
         ])
+    }
+}
+
+extension InfoViewController: WKNavigationDelegate {
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        activityIndicator.stopAnimating()
     }
 }
