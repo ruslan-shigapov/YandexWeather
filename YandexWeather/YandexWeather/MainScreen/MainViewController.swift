@@ -39,9 +39,6 @@ final class MainViewController: UIViewController {
     
     private var viewModel: MainViewModelProtocol! {
         didSet {
-            viewModel.fetchAllWeather { [weak self] in
-                self?.tableView.reloadData()
-            }
             viewModel.footerButtonWasPressed = { [weak self] in
                 let infoVC = InfoViewController()
                 self?.present(infoVC, animated: true)
@@ -103,7 +100,6 @@ extension MainViewController: UITableViewDataSource {
         switch section {
         case .weatherList:
             let citiesSectionCell = cell as? CityCell
-            citiesSectionCell?.cityLabel.text = viewModel.getCityName(at: indexPath)
             citiesSectionCell?.viewModel = viewModel.getCityCellViewModel(at: indexPath)
             cell = citiesSectionCell
         case .infoButton:
@@ -137,6 +133,8 @@ extension MainViewController: UITableViewDelegate {
 extension MainViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        // TODO: implement search logics in viewModel
+        viewModel.search(by: searchText) {
+            tableView.reloadData()
+        }
     }
 }

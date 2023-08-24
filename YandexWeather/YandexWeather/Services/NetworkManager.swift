@@ -22,13 +22,12 @@ final class NetworkManager {
     
     private init() {}
     
-    func fetchWeather(for latitude: Double,
-                      and longitude: Double,
+    func fetchWeather(for city: City,
                       completion: @escaping (Result<CityWeather, AFError>) -> Void) {
         guard var urlComponents = URLComponents(string: link) else { return }
         urlComponents.queryItems = [
-            URLQueryItem(name: "lat", value: "\(latitude)"),
-            URLQueryItem(name: "lon", value: "\(longitude)")
+            URLQueryItem(name: "lat", value: "\(city.latitude)"),
+            URLQueryItem(name: "lon", value: "\(city.longitude)")
         ]
         guard let url = urlComponents.url else { return }
         AF.request(url, headers: headers)

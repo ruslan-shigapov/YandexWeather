@@ -12,58 +12,44 @@ protocol InfoCellDelegate {
 }
 
 protocol MainViewModelProtocol: InfoCellDelegate {
+    var filteredCities: [City] { get set }
     func numberOfSections() -> Int
     func numberOfRows(in section: Section) -> Int
-    func fetchAllWeather(completion: @escaping () -> Void)
-    func getCityName(at indexPath: IndexPath) -> String
     func getCityCellViewModel(at indexPath: IndexPath) -> CityCellViewModelProtocol
     func getDetailsViewModel(at indexPath: IndexPath) -> DetailsViewModelProtocol
+    func search(by text: String, completion: () -> Void)
 }
 
 final class MainViewModel: MainViewModelProtocol {
     
     private let citiesList = City.getCities()
     
-    private var weatherList: [CityWeather] = []
-    
     var footerButtonWasPressed: (() -> Void)?
+    
+    lazy var filteredCities: [City] = {
+        citiesList
+    }()
     
     func numberOfSections() -> Int {
         Section.allCases.count
     }
     
     func numberOfRows(in section: Section) -> Int {
-        section == .weatherList ? weatherList.count : 1
-    }
-    
-    func fetchAllWeather(completion: @escaping () -> Void) {
-        for city in citiesList {
-            NetworkManager.shared.fetchWeather(
-                for: city.latitude,
-                and: city.longitude
-            ) { [weak self] result in
-                switch result {
-                case .success(let cityWeather):
-                    DispatchQueue.global().sync {
-                        self?.weatherList.append(cityWeather)
-                    }
-                    completion()
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
-            }
-        }
-    }
-    
-    func getCityName(at indexPath: IndexPath) -> String {
-        citiesList[indexPath.row].name
+        section == .weatherList ? filteredCities.count : 1
     }
     
     func getCityCellViewModel(at indexPath: IndexPath) -> CityCellViewModelProtocol {
-        CityCellViewModel(cityWeather: weatherList[indexPath.row])
+        CityCellViewModel(city: filteredCities[indexPath.row])
     }
     
     func getDetailsViewModel(at indexPath: IndexPath) -> DetailsViewModelProtocol {
-        DetailsViewModel(city: citiesList[indexPath.row])
+        DetailsViewModel(city: filteredCities[indexPath.row])
+    }
+    
+    func search(by text: String, completion: () -> Void) {
+        filteredCities = text.isEmpty ? citiesList : citiesList.filter { city -> Bool in
+            city.name.range(of: text, options: .caseInsensitive) != nil
+        }
+        completion()
     }
 }

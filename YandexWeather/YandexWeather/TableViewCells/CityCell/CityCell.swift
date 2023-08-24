@@ -10,6 +10,12 @@ import UIKit
 class CityCell: UITableViewCell {
     
     // MARK: - Private Properties
+    private lazy var cityLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 16, weight: .bold)
+        return label
+    }()
+    
     private lazy var conditionLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 12, weight: .light)
@@ -60,19 +66,16 @@ class CityCell: UITableViewCell {
     }()
     
     // MARK: - Public Properties
-    lazy var cityLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 16, weight: .bold)
-        return label
-    }()
-    
     var viewModel: CityCellViewModelProtocol! {
         didSet {
-            conditionLabel.text = viewModel.condition
-            weatherImageView.image = UIImage(named: viewModel.icon)
-            weatherLabel.text = viewModel.temperature
-            sunriseTimeLabel.text = viewModel.sunrise
-            sunsetTimeLabel.text = viewModel.sunset
+            cityLabel.text = viewModel.name
+            viewModel.fetchWeather { [unowned self] in
+                conditionLabel.text = viewModel.condition
+                weatherImageView.image = UIImage(named: viewModel.icon)
+                weatherLabel.text = viewModel.temperature
+                sunriseTimeLabel.text = viewModel.sunrise
+                sunsetTimeLabel.text = viewModel.sunset
+            }
         }
     }
 

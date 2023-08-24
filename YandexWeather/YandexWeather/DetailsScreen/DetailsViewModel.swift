@@ -77,10 +77,7 @@ final class DetailsViewModel: DetailsViewModelProtocol {
     }
     
     func fetchWeather(completion: @escaping () -> Void) {
-        NetworkManager.shared.fetchWeather(
-            for: city.latitude,
-            and: city.longitude
-        ) { [weak self] result in
+        NetworkManager.shared.fetchWeather(for: city) { [weak self] result in
             switch result {
             case .success(let cityWeather):
                 self?.cityWeather = cityWeather
