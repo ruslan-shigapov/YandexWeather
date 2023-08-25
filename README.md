@@ -11,4 +11,8 @@ Test task
 городе. Дизайн и какую информацию необходимо отображать – решайте вы сами.
 Ссылка на API – https://yandex.ru/dev/weather/doc/dg/concepts/about-docpage/
 
-<img width="369" alt="Screenshot" src="https://github.com/ruslan-shigapov/YandexWeather/assets/104629658/8a312245-5ed8-4c35-934a-6edc3a898efa">
+<img width="366" alt="Screenshot_1" src="https://github.com/ruslan-shigapov/YandexWeather/assets/104629658/edd8491f-6f36-4841-a7f6-2a7e0f245fd6">
+
+<img width="366" alt="Screenshot_2" src="https://github.com/ruslan-shigapov/YandexWeather/assets/104629658/d584833e-f3ce-4afb-8258-ec67843cc4f2">
+
+<img width="366" alt="Screenshot_3" src="https://github.com/ruslan-shigapov/YandexWeather/assets/104629658/2a1a3a21-ad58-4abd-be42-15b08d7b975d">
