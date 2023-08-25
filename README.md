@@ -16,3 +16,5 @@ Test task
 <img width="366" alt="Screenshot_2" src="https://github.com/ruslan-shigapov/YandexWeather/assets/104629658/d584833e-f3ce-4afb-8258-ec67843cc4f2">
 
 <img width="366" alt="Screenshot_3" src="https://github.com/ruslan-shigapov/YandexWeather/assets/104629658/2a1a3a21-ad58-4abd-be42-15b08d7b975d">
+
+<img width="366" alt="Screenshot_4" src="https://github.com/ruslan-shigapov/YandexWeather/assets/104629658/04be5a76-43a9-447b-9a2a-443d82d5ebcb">
